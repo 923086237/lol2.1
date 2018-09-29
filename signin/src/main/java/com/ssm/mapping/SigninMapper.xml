@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.SigninMapper">
+	
+	<resultMap id="PMap" type="PresonSignin">
+    <result column="uname" jdbcType="VARCHAR" property="uname" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <collection column="{uname=uname,date=date}" fetchType="eager" javaType="java.util.ArrayList" ofType="Signin" property="sl" select="com.ssm.dao.SigninMapper.nd" />
+  </resultMap>
+
+
+	<insert id="addSignin" parameterType="Signin">
+		insert into signin(uname,flag,stime,number,date) values(#{uname},#{flag},#{stime},#{number},#{date})
+	</insert>
+	
+	<select id="findByDateAndNum" resultType="Signin" parameterType="Map">
+		select * from signin where date=#{0} and number=#{1}
+	</select>
+	
+	<select id="findPresonSignin" parameterType="String" resultMap="PMap">
+		select DISTINCT s.uname,s.date from signin s where uname = #{uname}
+	</select>
+	
+	<select id="nd" parameterType="Map" resultType="Signin">
+		select * from signin where uname=#{uname} and date=#{date}
+	</select>
+</mapper>
