@@ -1,0 +1,8 @@
+com\lol\domain\User.class
+com\lol\realm\MyRealm.class
+com\lol\controller\UserController.class
+com\lol\dao\UserMapper.class
+com\lol\service\MUserService.class
+com\lol\utils\JsonBeanUtil.class
+com\lol\manager\UserService.class
+com\lol\domain\JsonBean.class
