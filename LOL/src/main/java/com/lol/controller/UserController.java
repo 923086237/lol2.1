@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private MUserService userService;
 
-    @RequestMapping(value = "adduser",method = RequestMethod.POST)
+    @RequestMapping(value = "/adduser",method = RequestMethod.POST)
     @ResponseBody
     public JsonBean addUser(User user){
         Md5Hash md5 = new Md5Hash(user.getPwd(),user.getNo(),1);
@@ -37,7 +37,8 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "loginUser", method = RequestMethod.POST)
+    @ResponseBody
     public JsonBean loginUser(String no, String pwd, HttpSession session){
         UsernamePasswordToken token = new UsernamePasswordToken(no,pwd);
         Subject subject = SecurityUtils.getSubject();

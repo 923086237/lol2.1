@@ -12,6 +12,6 @@
     select * from m_user where no = #{no}
   </select>
   <insert id="addUser" parameterType="User">
-    insert into m_user(no,name,pwd,is_staff) values (#{no},#{name},#{pwd},1);
+    insert into m_user(no,name,pwd,is_staff) values (#{no},#{name},#{pwd},0);
   </insert>
 </mapper>
