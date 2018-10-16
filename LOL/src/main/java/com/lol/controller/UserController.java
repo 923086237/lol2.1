@@ -38,6 +38,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
+    @ResponseBody
     public JsonBean loginUser(String no, String pwd, HttpSession session){
         UsernamePasswordToken token = new UsernamePasswordToken(no,pwd);
         Subject subject = SecurityUtils.getSubject();
@@ -49,7 +50,17 @@ public class UserController {
             e.printStackTrace();
             return JsonBeanUtil.w(0,"登录失败");
         }
-
     }
 
+    @RequestMapping(value = "islogin", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonBean islogin(HttpSession session){
+        try {
+            String no = (String)session.getAttribute("no");
+            return JsonBeanUtil.w(200,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonBeanUtil.w(0,null);
+        }
+    }
 }
