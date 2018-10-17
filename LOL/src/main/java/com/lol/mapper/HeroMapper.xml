@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lol.dao.HeroMapper">
+    <resultMap id="BaseResultMap" type="com.lol.domain.Hero">
+        <id column="id" jdbcType="SMALLINT" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="sort" jdbcType="VARCHAR" property="sort" />
+        <result column="camp" jdbcType="VARCHAR" property="camp" />
+        <result column="introduce" jdbcType="VARCHAR" property="introduce" />
+        <result column="image" jdbcType="VARCHAR" property="image" />
+        <result column="price" jdbcType="DECIMAL" property="price" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, title, name, sort, camp, introduce, image, price
+  </sql>
+
+    <select id="findAllHero" resultType="com.lol.domain.Hero">
+        select * from m_hero
+    </select>
+
+    <select id="findByHeroName" resultType="com.lol.domain.Hero" parameterType="string">
+        select * from m_hero where name={#name}
+    </select>
+
+    <select id="findByHeroCamp" resultType="com.lol.domain.Hero" parameterType="string">
+        select * from m_hero where camp={#camp}
+    </select>
+
+    <select id="findAllHeroLimit" resultType="com.lol.domain.Hero" parameterType="map">
+        select * from m_hero limit #{index},#{size}
+    </select>
+
+    <select id="count" resultType="Integer">
+        select count(1) from m_hero
+    </select>
+</mapper>

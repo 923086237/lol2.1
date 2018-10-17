@@ -30,12 +30,13 @@ public class UserController {
         user.setPwd(md5.toString());
         try {
             userService.addUser(user);
-            return JsonBeanUtil.w(200,"注册成功");
+            return JsonBeanUtil.w(0,"注册成功");
         } catch (Exception e) {
             e.printStackTrace();
             return JsonBeanUtil.w(0,"注册失败");
         }
     }
+
 
     @RequestMapping(value = "loginUser", method = RequestMethod.POST)
     @ResponseBody
@@ -45,12 +46,22 @@ public class UserController {
         try {
             subject.login(token);
             session.setAttribute("no",no);
-            return JsonBeanUtil.w(200,null);
+            return JsonBeanUtil.w(0,null);
         } catch (AuthenticationException e) {
             e.printStackTrace();
             return JsonBeanUtil.w(0,"登录失败");
         }
-
     }
 
+    @RequestMapping(value = "head", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonBean islogin(HttpSession session){
+        try {
+            String no = (String)session.getAttribute("no");
+            return JsonBeanUtil.w(0,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return JsonBeanUtil.w(0,null);
+        }
+    }
 }

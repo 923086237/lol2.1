@@ -14,21 +14,21 @@
 	
 	<typeAliases>
 		<typeAlias type="com.lol.domain.User" alias="User" />
-	<!--	<typeAlias type="com.lol.domain.Authority" alias="Authority" />
-		<typeAlias type="com.lol.domain.Equipment" alias="Equipment" />
 		<typeAlias type="com.lol.domain.Hero" alias="Hero" />
-		<typeAlias type="com.lol.domain.Heromessage" alias="Heromessage" />
-		<typeAlias type="com.lol.domain.Heroskill" alias="Heroskill" />
-		<typeAlias type="com.lol.domain.HeroskinKey" alias="HeroskinKey" />
-		<typeAlias type="com.lol.domain.Order" alias="Order" />
-		<typeAlias type="com.lol.domain.Role" alias="Role" />
-		<typeAlias type="com.lol.domain.RoleauthorityKey" alias="RoleauthorityKey" />
-		<typeAlias type="com.lol.domain.Scart" alias="Scart" />
-		<typeAlias type="com.lol.domain.Skill" alias="Skill" />
-		<typeAlias type="com.lol.domain.Skin" alias="Skin" />
-		<typeAlias type="com.lol.domain.UserheroKey" alias="UserheroKey" />
-		<typeAlias type="com.lol.domain.Userrole" alias="Userrole" />
-		<typeAlias type="com.lol.domain.UserskinKey" alias="UserskinKey" />-->
+		<!--	<typeAlias type="com.lol.domain.Authority" alias="Authority" />
+            <typeAlias type="com.lol.domain.Equipment" alias="Equipment" />
+            <typeAlias type="com.lol.domain.Heromessage" alias="Heromessage" />
+            <typeAlias type="com.lol.domain.Heroskill" alias="Heroskill" />
+            <typeAlias type="com.lol.domain.HeroskinKey" alias="HeroskinKey" />
+            <typeAlias type="com.lol.domain.Order" alias="Order" />
+            <typeAlias type="com.lol.domain.Role" alias="Role" />
+            <typeAlias type="com.lol.domain.RoleauthorityKey" alias="RoleauthorityKey" />
+            <typeAlias type="com.lol.domain.Scart" alias="Scart" />
+            <typeAlias type="com.lol.domain.Skill" alias="Skill" />
+            <typeAlias type="com.lol.domain.Skin" alias="Skin" />
+            <typeAlias type="com.lol.domain.UserheroKey" alias="UserheroKey" />
+            <typeAlias type="com.lol.domain.Userrole" alias="Userrole" />
+            <typeAlias type="com.lol.domain.UserskinKey" alias="UserskinKey" />-->
 	</typeAliases>
 
 </configuration>
