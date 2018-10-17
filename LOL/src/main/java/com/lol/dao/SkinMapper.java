@@ -19,4 +19,6 @@ public interface SkinMapper {
      */
     public List<Skin> findAllSkinLimit(Map<String, Object> info);
 
+    public int count();
+
 }

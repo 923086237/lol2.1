@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class HeroController {
 
@@ -22,8 +24,8 @@ public class HeroController {
     @ResponseBody
     public JsonBean findAll(){
         try {
-            heroService.findAllHero();
-            return JsonBeanUtil.w(0,null);
+           List<Hero> list = heroService.findAllHero();
+            return JsonBeanUtil.w(0,list);
         } catch (Exception e) {
             e.printStackTrace();
             return JsonBeanUtil.w(1,e.getMessage());

@@ -19,6 +19,8 @@
     <select id="findAllSkinLimit" resultType="com.lol.domain.Skin" parameterType="map">
                      select * from m_skin limit #{index}，#{size}
                  </select>
-
+    <select id="count" parameterType="Integer">
+        select count(1) from m_skin
+    </select>
 
 </mapper>

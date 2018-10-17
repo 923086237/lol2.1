@@ -1,8 +1,9 @@
 package com.lol.manager;
 
-import com.lol.dao.HeroMapper;
-import com.lol.domain.Hero;
-import com.lol.service.IHeroService;
+import com.lol.dao.SkinMapper;
+
+import com.lol.domain.Skin;
+import com.lol.service.ISkinService;
 import com.lol.vo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,36 +13,23 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class HeroService implements IHeroService {
-
+public class SkinService implements ISkinService {
 
     @Autowired
-    private HeroMapper heroMapper;
+    private SkinMapper skinMapper;
 
     @Override
-    public List<Hero> findAllHero() {
-
-        return heroMapper.findAllHero();
+    public List<Skin> findSkinAll() {
+        return skinMapper.findAllSkin();
     }
 
     @Override
-    public Hero findByName(String name) {
-        return heroMapper.findByHeroName(name);
-    }
-
-    @Override
-    public List<Hero> findByCamp(String camp) {
-        return heroMapper.findByHeroCamp(camp);
-
-    }
-
-    @Override
-    public PageBean<Hero> findHeroPage(int page) {
-        PageBean<Hero> pageInfo = new PageBean<>();
+    public PageBean<Skin> findSkinByPage(int page) {
+        PageBean<Skin> pageInfo = new PageBean<>();
         pageInfo.setCurrentPage(page);
 
         //获取表中的总数
-        int count = heroMapper.count();
+        int count = skinMapper.count();
 
         //根据总数计算页数
 
@@ -57,12 +45,9 @@ public class HeroService implements IHeroService {
         map.put("index", index);
         map.put("size", pageInfo.getPageSize());
 
-        List<Hero> list = heroMapper.findAllHeroLimit(map);
+        List<Skin> list = skinMapper.findAllSkinLimit(map);
         pageInfo.setPageInfos(list);
         pageInfo.setCount(count);
-
         return pageInfo;
     }
-
-
 }
