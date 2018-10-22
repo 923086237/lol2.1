@@ -1,6 +1,7 @@
 package com.lol.dao;
 
 import com.lol.domain.Hero;
+import com.lol.vo.HeroMsgBean;
 
 import java.util.List;
 import java.util.Map;
@@ -38,4 +39,38 @@ public interface HeroMapper {
      * @return 数量
      */
     public int count();
+
+
+    /**
+     * 根据id查询英雄
+     * @param id
+     * @return
+     */
+    public Hero findByHeroId(int id);
+
+    /**
+     * 增加英雄
+     * @param hero
+     */
+    public void addHero(Hero hero);
+
+
+    /**
+     * 根据ID删除英雄
+     * @param id
+     */
+    public void delete(int id);
+
+    /**
+     * 修改英雄
+     * @param hero
+     */
+    public void updateHero(Hero hero);
+
+    /**
+     * 根据ID查询英雄详细信息
+     * @param id
+     * @return
+     */
+    public HeroMsgBean findHeroMsgById(int id);
 }

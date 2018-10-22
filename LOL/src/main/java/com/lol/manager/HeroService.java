@@ -3,6 +3,7 @@ package com.lol.manager;
 import com.lol.dao.HeroMapper;
 import com.lol.domain.Hero;
 import com.lol.service.IHeroService;
+import com.lol.vo.HeroMsgBean;
 import com.lol.vo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,46 @@ public class HeroService implements IHeroService {
         pageInfo.setCount(count);
 
         return pageInfo;
+    }
+
+
+
+    @Override
+    public Hero findByHeroId(int id) {
+       return heroMapper.findByHeroId(id);
+    }
+
+    @Override
+    public void deleteByHeroId(int id) {
+        if (heroMapper.findByHeroId(id) != null){
+            heroMapper.delete(id);
+        }else{
+            throw new RuntimeException("用户不存在, 无法删除");
+        }
+
+    }
+
+    @Override
+    public void addHero(Hero hero) {
+      if(heroMapper.findByHeroId(hero.getId())  != null){
+          heroMapper.addHero(hero);
+      }else{
+          throw new RuntimeException("用户已存在，无法添加");
+      }
+    }
+
+    @Override
+    public void updateHeroById(Hero hero) {
+        if (heroMapper.findByHeroId(hero.getId()) != null){
+            heroMapper.updateHero(hero);
+        }else{
+            throw new RuntimeException("用户不存在，无法修改");
+        }
+    }
+
+    @Override
+    public HeroMsgBean findHeroInfo(int id) {
+        return heroMapper.findHeroMsgById(id);
     }
 
 

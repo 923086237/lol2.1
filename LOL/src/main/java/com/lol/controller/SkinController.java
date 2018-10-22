@@ -28,7 +28,7 @@ public class SkinController {
         return JsonBeanUtil.w(1,list);
     }
 
-    @RequestMapping(value = "findSkinPage",method = RequestMethod.GET)
+    @RequestMapping(value = "findSkinPage/{page}",method = RequestMethod.GET)
     @ResponseBody
     public JsonBean findSkinPage(@PathVariable("page") int page){
         PageBean<Skin> info = skinService.findSkinByPage(page);

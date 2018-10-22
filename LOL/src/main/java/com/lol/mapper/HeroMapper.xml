@@ -34,4 +34,28 @@
     <select id="count" resultType="Integer">
         select count(1) from m_hero
     </select>
+
+    <select id="findByHeroId" resultType="com.lol.domain.Hero" parameterType="Integer">
+        select * from m_hero where id=#{id}
+    </select>
+
+    <insert id="addHero" parameterType="com.lol.domain.Hero">
+        insert into m_hero (title,name,sort,camp,introduce,image,price) values (#{title},#{name},#{sort},#{camp},#{introduce},#{image},#{price})
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        delete from m_hero where id = #{id}
+    </delete>
+
+    <update id="updateHero" parameterType="com.lol.domain.Hero">
+        update m_hero set title=#{title},name=#{name},sort=#{sort},camp=#{camp},introduce=#{introduce},image=#{image},price=#{price} where id = #{id}
+    </update>
+
+    <select id="findHeroMsgById" parameterType="Integer" resultType="com.lol.vo.HeroMsgBean">
+        SELECT h.title,h.name,hm.health,hm.restore_health,hm.magic,hm.restore_magic,hm.movement_speed,hm.attack_range,hm.atk,hm.atk_speed,hm.armor,hm.spells,h.image,h.price
+        FROM m_hero h
+        INNER JOIN m_heromessage hm
+        on h.id=hm.hid
+        WHERE id=#{id}
+    </select>
 </mapper>
